@@ -9,21 +9,29 @@ int main()
 
 	token = strtok(str, " ");
 
-	switch (token[0])
+	if (!token[1]) // Дописать принятие хелп функции
 	{
-	case 'a':
-		printf("%s", "Add Function");
-		break;
-	case 'r':
-		printf("%s", "Read Function");
-		break;
-	case 'd':
-		printf("%s", "Delete Function");
-		break;
-	default:
-		printf("%s", "Fatal Error");
-		break;
+		switch (token[0])
+		{
+		case 'a':
+			printf("%s", "Add Function");
+			break;
+		case 'r':
+			printf("%s", "Read Function");
+			break;
+		case 'd':
+			printf("%s", "Delete Function");
+			break;
+		case 'h':
+			printf("%s", "Help Function");
+			break;
+		default:
+			printf("%s", "Fatal Error");
+			break;
+		}
 	}
-
+	else
+		printf("%s", "Fatal Error");
+	
 	return 0;
 }
