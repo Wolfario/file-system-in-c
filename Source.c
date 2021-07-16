@@ -11,7 +11,7 @@ int main()
 		printf_s("%s", "hochu sosat\n");
 	}
 	
-	//sex
+	//sex sex
 
 	return 0;
 }
