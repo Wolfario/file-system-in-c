@@ -1,3 +1,3 @@
 ﻿  Source.c
-C:\Users\ПК\OneDrive\Рабочий стол\file-system-in-c\GitProject\file-system-in-c\Source.c(23,8): warning C4013: system: нет определения; предполагается "extern" с возвратом типа "int"
-  file-system-in-c.vcxproj -> C:\Users\ПК\OneDrive\Рабочий стол\file-system-in-c\GitProject\file-system-in-c\Debug\file-system-in-c.exe
+C:\Users\ПК\OneDrive\Рабочий стол\GitProject\file-system-in-c\Source.c(71,12): warning C4013: system: нет определения; предполагается "extern" с возвратом типа "int"
+  file-system-in-c.vcxproj -> C:\Users\ПК\OneDrive\Рабочий стол\GitProject\file-system-in-c\Debug\file-system-in-c.exe
