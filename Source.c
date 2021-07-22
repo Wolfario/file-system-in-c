@@ -23,7 +23,7 @@ void add_data()
 	const char determinant_list[3] = ";~";
 	char potentional_name[100];
 	char potentional_value[100];
-
+	
 	if ((fin = fopen("storage.txt", "r")) == NULL)
 	{
 		print_logo();
@@ -40,12 +40,27 @@ void add_data()
 		{
 			if (checker % 2 == 0 && checker != -1)
 			{
+				
 				if (strcmp(potentional_name, token) == 0)
 				{
 					system("cls");
 					print_logo();
 					printf("An item with this name already exists, please name it differently.\n");
 					checker = -1;
+				}
+
+				if (strcmp(potentional_name, "help") == 0 || strcmp(potentional_name, "a") == 0 || strcmp(potentional_name, "d") == 0 || strcmp(potentional_name, "r") == 0 || strcmp(potentional_name, "exit") == 0)
+				{
+					system("cls");
+					print_logo();
+					printf("An item with this name can't exists, please name it differently.\n");
+					checker = -1;
+				}
+
+				if (strcmp(potentional_name, "back") == 0)
+				{
+					system("cls");
+					checker = 9999;
 				}
 			}
 
@@ -55,7 +70,11 @@ void add_data()
 
 		fclose(fin);
 
-		if (checker != 0)
+		if (checker == 0)
+		{
+			add_data();
+		}
+		if (checker != 10000 && checker != 0)
 		{
 			if ((fin = fopen("storage.txt", "a+")) == NULL)
 			{
@@ -74,10 +93,7 @@ void add_data()
 			fclose(fin);
 			system("cls");
 		}
-		else
-		{
-			add_data();
-		}
+
 	}
 }
 
@@ -139,7 +155,12 @@ void read_data()
 					printf("Value: %s\n", token);
 					checker = -1;
 				}
-					
+
+				if (strcmp(str, "back") == 0)
+				{
+					system("cls");
+					checker = -1;
+				}					
 			}
 
 			token = strtok(NULL, determinant_list);
@@ -165,7 +186,7 @@ void help()
 	system("cls");
 
 	print_logo();
-	printf("%s", "\nCommand list:\n a - The command to add an item to the repository\n d - The command to delete an item from the repository\n r - The command for reading an item from the repository\n");
+	printf("%s", "\nCommand list:\n a - The command to add an item to the repository\n d - The command to delete an item from the repository\n r - The command for reading an item from the repository\n back - The command for returning from function to main menu\n");
 }
 
 void menu()
@@ -179,11 +200,15 @@ void menu()
 	char exit_checker[5] = "exit";
 	int exit_checker_ind = strcmp(str, exit_checker);
 
-	if (!str[1] || help_checker_ind == 0 || exit_checker_ind == 0)
+	char back_checker[5] = "back";
+	int back_checker_ind = strcmp(str, back_checker);
+
+	if (!str[1] || help_checker_ind == 0 || exit_checker_ind == 0 || back_checker_ind == 0)
 	{
 		switch (str[0])
 		{
 		case 'a':
+			system("cls");
 			add_data();
 			break;
 		case 'r':
@@ -211,6 +236,12 @@ void menu()
 			if (exit_checker_ind == 0)
 			{
 				program_status = 0;
+				break;
+			}
+		case 'b':
+			if (back_checker_ind == 0)
+			{
+				system("cls");
 				break;
 			}
 			else
